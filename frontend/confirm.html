@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Booking</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f3f4f6;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            border-top: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total {
+            color: green;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .back {
+            background: #ddd;
+        }
+
+        .confirm {
+            background: green;
+            color: white;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Confirm Booking</h2>
+
+    <!-- Equipment -->
+    <div class="section">
+        <h3 id="name"></h3>
+        <p>₹<span id="price"></span>/day</p>
+    </div>
+
+    <!-- Dates -->
+    <div class="section">
+        <div class="row">
+            <span>Start Date:</span>
+            <span id="start"></span>
+        </div>
+        <div class="row">
+            <span>End Date:</span>
+            <span id="end"></span>
+        </div>
+    </div>
+
+    <!-- Total -->
+    <div class="section">
+        <div class="row total">
+            <span>Total Amount:</span>
+            <span>₹<span id="total"></span></span>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btns">
+        <button class="back" onclick="goBack()">Go Back</button>
+        <button class="confirm" onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+
+</div>
+
+<script>
+
+    // load data
+    document.getElementById("name").innerText = localStorage.getItem("name");
+    document.getElementById("price").innerText = localStorage.getItem("price");
+    document.getElementById("start").innerText = localStorage.getItem("startDate");
+    document.getElementById("end").innerText = localStorage.getItem("endDate");
+    document.getElementById("total").innerText = localStorage.getItem("total");
+
+    // back
+    function goBack() {
+        window.location.href = "rent.html";
+    }
+
+    // confirm booking (API call)
+    function confirmBooking() {
+
+        fetch("http://localhost:8080/api/bookings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                equipmentName: localStorage.getItem("name"),
+                price: localStorage.getItem("price"),
+                totalPrice: localStorage.getItem("total")
+            })
+        })
+        .then(res => res.text())
+        .then(data => {
+            alert("✅ Booking Confirmed!");
+        });
+
+    }
+
+</script>
+
+</body>
+</html>

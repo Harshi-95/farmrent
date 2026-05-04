@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Equipment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>🌱 FarmRent</h2>
+
+    <div class="nav-links">
+        <a href="farmer.html">Home</a>
+        <a href="equipment.html">Equipment</a>
+        <a href="mybookings.html">My Bookings</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Logout</a>
+    </div>
+</div>
+
+<!-- TITLE -->
+<div class="dashboard">
+    <h1>Equipment Listing</h1>
+    <p>Browse and rent farming equipment</p>
+
+    <!-- SEARCH BAR -->
+    <input type="text" id="searchBox" placeholder="Search equipment..."
+           onkeyup="searchEquipment()"
+           style="width:60%; padding:10px; margin-top:10px;">
+</div>
+
+<!-- EQUIPMENT GRID -->
+<div class="equipment-cards">
+
+    <!-- CARD 1 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2021/06/John-Deere-410-8RT-300x154.jpg">
+        <h3>Tractor</h3>
+        <p>₹150/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 1 -->
+    <div class="equipment-card item">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.vWnj4X3WWHnUKbogwVR8ygHaFj?pid=Api&P=0&h=180">
+        <h3>3T Trailer</h3>
+        <p>₹350/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.a8gnfaPCA170jFBh79pW5wHaHa?pid=Api&P=0&h=180">
+        <h3>Heavy Duty Plough</h3>
+        <p>₹80/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2022/09/Combine-Harvesters-e1663698768311-300x193.webp">
+        <h3>Combine Harvester</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 3 -->
+    <div class="equipment-card item">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.ylZ08-sId5NYpbp_DtjhtAHaHa?pid=Api&P=0&h=180">
+        <h3>Balers</h3>
+        <p>₹800/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2022/09/best-tractor-disc-harrow-reviews-e1663698985567-300x207.webp">
+        <h3>Disc Harrow</h3>
+        <p>₹400/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2022/09/Air-seeder-e1663699723423-300x190.webp">
+        <h3>Air Seeder</h3>
+        <p>₹700/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 6 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2022/09/Transplanter-e1663699803577-300x222.webp">
+        <h3>Transplanter</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="equipment-card item">
+        <img src="https://sandcreekfarm.net/wp-content/uploads/2022/09/best-3-point-sprayer-reviews-e1663699842573-300x179.webp">
+        <h3>Sprayer</h3>
+        <p>₹390/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="equipment-card item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.dnjyR9b3NpCcLwAdYDlCvgHaFj?pid=Api&P=0&h=180">
+        <h3>Cultivaror</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 8 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.E-edLtk-IKw1oeZnUJJ2SQHaE8?pid=Api&P=0&h=180">
+        <h3>Seed Drill</h3>
+        <p>₹1000/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="equipment-card item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.iTrxRa3ZDqhEAP0csRFL6AHaE8?pid=Api&P=0&h=180">
+        <h3>Pallet Forks</h3>
+        <p>₹400/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="equipment-card item">
+        <img src="https://up.yimg.com/ib/th/id/OIP.BXPDtNgmMl3nFWIqyI4qZgHaEK?pid=Api&rs=1&c=1&qlt=95&w=217&h=121">
+        <h3>Combine Harvester</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 11 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.JBicGfSU8mJveij3tjtZCgHaEK?pid=Api&P=0&h=180">
+        <h3>Dozer</h3>
+        <p>₹1000/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 12 -->
+    <div class="equipment-card item">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.2RHr6BDGUlLVJPxX7Y15bAHaE6?pid=Api&P=0&h=180">
+        <h3>Backhoe</h3>
+        <p>₹800/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 13 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.aLsujTpehFAjsZ5E-1XycgHaEK?pid=Api&P=0&h=180">
+        <h3>Rotary Tiller</h3>
+        <p>₹500/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 14 -->
+    <div class="equipment-card">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.vey5u6jhn23AdMDlAs7SsAHaEP?pid=Api&P=0&h=180">
+        <h3>Potato Harvester</h3>
+        <p>₹800/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 15 -->
+    <div class="equipment-card item">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.PYHd7HuEY2c6hyWNBRG-5gHaE5?pid=Api&P=0&h=180">
+        <h3>Power Reaper</h3>
+        <p>₹400/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 16 -->
+    <div class="equipment-card item">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.0zByKq7gJWp5aLyyIGZRJAHaHa?pid=Api&P=0&h=180">
+        <h3>Earth Auger</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 17 -->
+    <div class="equipment-card item">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.IHH0-FrnTtZCKj3u06nOTQHaHl?pid=Api&P=0&h=180">
+        <h3>Power Weeder</h3>
+        <p>₹550/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 18 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.c--9cHh6YwL5mbAIj84kNgHaEK?pid=Api&P=0&h=180">
+        <h3>Self Propelled Sprayer</h3>
+        <p>₹500/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+    <!-- CARD 19 -->
+    <div class="equipment-card item">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.nS8PhdNfcI6xqEUSViXe5wHaEK?pid=Api&P=0&h=180">
+        <h3>Peanut Harvester</h3>
+        <p>₹300/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+    <!-- CARD 20 -->
+    <div class="equipment-card item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.4T_-TF_s_q3vjlfBcrJfOwHaFj?pid=Api&P=0&h=180">
+        <h3>Corn Planter</h3>
+        <p>₹500/day</p>
+        <button onclick="rentNowFromCard(this)">Rent Now</button>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+<script>
+
+    function searchEquipment() {
+        let input = document.getElementById("searchBox").value.toLowerCase();
+        let items = document.getElementsByClassName("item");
+
+        for (let i = 0; i < items.length; i++) {
+            let text = items[i].innerText.toLowerCase();
+
+            if (text.includes(input)) {
+                items[i].style.display = "block";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+
+//Backend
+<script>
+
+    function searchEquipment() {
+        let input = document.getElementById("searchBox").value.toLowerCase();
+        let items = document.getElementsByClassName("item");
+
+        for (let i = 0; i < items.length; i++) {
+            let text = items[i].innerText.toLowerCase();
+
+            if (text.includes(input)) {
+                items[i].style.display = "block";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
+
+    /* Static Cards Rent Now */
+    function rentNowFromCard(button){
+
+        let card = button.parentElement;
+
+        let name = card.querySelector("h3").innerText;
+        let priceText = card.querySelector("p").innerText;
+        let image = card.querySelector("img").src;
+
+        let price = priceText.replace("₹","").replace("/day","");
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("price", price);
+        localStorage.setItem("image", image);
+
+        window.location.href = "rent.html";
+    }
+
+    /* Dynamic Equipment Load */
+    fetch("http://localhost:8080/api/equipment")
+    .then(res => res.json())
+    .then(data => {
+
+        let container = document.querySelector(".equipment-cards");
+
+        data.forEach(e => {
+
+            container.innerHTML += `
+            <div class="equipment-card item">
+                <img src="${e.image}">
+                <h3>${e.name}</h3>
+                <p>₹${e.price}/day</p>
+                <button onclick="rentNowDynamic('${e.name}','${e.price}','${e.image}')">
+                    Rent Now
+                </button>
+            </div>
+            `;
+
+        });
+
+    });
+
+    /* Dynamic Rent Now */
+    function rentNowDynamic(name, price, image){
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("price", price);
+        localStorage.setItem("image", image);
+
+        window.location.href = "rent.html";
+    }
+
+</script>

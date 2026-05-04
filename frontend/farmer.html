@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>🌱 FarmRent</h2>
+
+    <div class="nav-links">
+        <a href="farmer.html">Home</a>
+        <a href="equipment.html">Equipment</a>
+        <a href="mybookings.html">My Bookings</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Logout</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1 id="welcomeText"></h1>
+    <p>Find the perfect equipment for your farming needs</p>
+    <button onclick="goToEquipment()">Browse Equipment →</button>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+
+    <div class="feature-card">
+        <div class="icon">📦</div>
+        <h3>Wide Selection</h3>
+        <p>Choose from many farming equipment</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon">📈</div>
+        <h3>Best Prices</h3>
+        <p>Affordable rental rates</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon">👤</div>
+        <h3>Trusted Owners</h3>
+        <p>Verified equipment owners</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon">🛡️</div>
+        <h3>Secure Booking</h3>
+        <p>Safe transactions</p>
+    </div>
+
+</div>
+
+<!-- EQUIPMENT -->
+<div class="equipment">
+
+    <h2>Featured Equipment</h2>
+
+    <div class="equipment-cards">
+
+        <div class="equipment-card">
+            <img src="https://sandcreekfarm.net/wp-content/uploads/2021/06/John-Deere-410-8RT-300x154.jpg">
+            <h3>Tractor</h3>
+            <p>₹150/day</p>
+            <button onclick="viewDetails()">View Details</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.a8gnfaPCA170jFBh79pW5wHaHa?pid=Api&P=0&h=180"">
+            <h3>Heavy Duty Plough</h3>
+            <p>₹80/day</p>
+            <button onclick="viewDetails()">View Details</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="https://up.yimg.com/ib/th/id/OIP.BXPDtNgmMl3nFWIqyI4qZgHaEK?pid=Api&rs=1&c=1&qlt=95&w=217&h=121">
+            <h3>Combine Harvester</h3>
+            <p>₹300/day</p>
+            <button onclick="viewDetails()">View Details</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function goToEquipment() {
+        window.location.href = "equipment.html";
+    }
+
+    function viewDetails() {
+        window.location.href = "equipment.html";
+    }
+
+    /* Welcome Name */
+    let fullName = localStorage.getItem("userName");
+
+    if(fullName){
+
+        let firstName = fullName.split(" ")[0];
+
+        document.getElementById("welcomeText").innerText =
+        "Welcome Back, " + firstName + " 👋";
+
+    }else{
+
+        document.getElementById("welcomeText").innerText =
+        "Welcome Back, Farmer 👋";
+    }
+
+</script>
+
+</body>
+</html>

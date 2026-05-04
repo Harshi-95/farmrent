@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Equipment</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+        }
+
+        .top {
+            padding: 15px 40px;
+            font-size: 14px;
+        }
+
+        .top a {
+            text-decoration: none;
+            color: gray;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 20px 40px;
+        }
+
+        .left {
+            flex: 1;
+        }
+
+        .left img {
+            width: 100%;
+            border-radius: 12px;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .right {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .tag {
+            background: #d1fae5;
+            color: green;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 5px 0;
+        }
+
+        .desc {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .price {
+            color: green;
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .available {
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        .dates {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .total {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .features {
+            margin-top: 15px;
+            font-size: 14px;
+            color: gray;
+        }
+
+        .features li {
+            margin: 5px 0;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top">
+    <a href="equipment.html">← Back to Equipment</a>
+</div>
+
+<div class="container">
+
+    <div class="left">
+        <img id="image">
+    </div>
+
+    <div class="right">
+
+        <div class="tag">Equipment</div>
+
+        <h2 id="name"></h2>
+
+        <p class="desc">
+            High quality farming equipment for all your needs.
+            Reliable, powerful and ready for work.
+        </p>
+
+        <div class="price">₹<span id="price"></span> / day</div>
+
+        <div class="available">● Available</div>
+
+        <h4>Select Rental Dates</h4>
+
+        <div class="dates">
+            <input type="date" id="startDate" onchange="calculateTotal()">
+            <input type="date" id="endDate" onchange="calculateTotal()">
+        </div>
+
+        <div class="total">
+            Total Price: ₹<span id="total">0</span>
+        </div>
+
+        <div class="features">
+            <ul>
+                <li>✓ Well maintained equipment</li>
+                <li>✓ Verified owner</li>
+                <li>✓ Flexible rental periods</li>
+            </ul>
+        </div>
+
+        <button onclick="bookNow()">Book Now</button>
+
+    </div>
+
+</div>
+
+<script>
+
+    document.getElementById("name").innerText = localStorage.getItem("name");
+    document.getElementById("price").innerText = localStorage.getItem("price");
+    document.getElementById("image").src = localStorage.getItem("image");
+
+
+    function calculateTotal() {
+
+        let start = document.getElementById("startDate").value;
+        let end = document.getElementById("endDate").value;
+        let price = parseInt(localStorage.getItem("price"));
+
+        if(start && end){
+
+            let d1 = new Date(start);
+            let d2 = new Date(end);
+
+            let diff = (d2 - d1) / (1000 * 60 * 60 * 24);
+
+            if(diff >= 0){
+                let total = (diff + 1) * price;
+                document.getElementById("total").innerText = total;
+            }
+        }
+    }
+
+
+  function bookNow() {
+
+    let startDate = document.getElementById("startDate").value;
+    let endDate = document.getElementById("endDate").value;
+    let total = document.getElementById("total").innerText;
+
+    if(startDate == "" || endDate == ""){
+        alert("Please select dates");
+        return;
+    }
+
+    // save booking data temporarily
+    localStorage.setItem("startDate", startDate);
+    localStorage.setItem("endDate", endDate);
+    localStorage.setItem("total", total);
+
+    // go payment page
+    window.location.href = "payment.html";
+}
+
+</script>
+
+</body>
+</html>
